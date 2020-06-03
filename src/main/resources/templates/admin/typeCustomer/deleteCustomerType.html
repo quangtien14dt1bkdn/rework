@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Customer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form th:action="@{/deleteTypeCustomer}" th:object="${TypeCustomer}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}"/>
+    <table>
+        <tr>
+            <td>ID:</td>
+            <td th:text="*{id}"></td>
+        </tr>
+        <tr>
+            <td>NAME:</td>
+            <td th:text="*{nameTypeCustomer}"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="DELETE"></td>
+        </tr>
+    </table>
+
+</form>
+
+</body>
+</html>

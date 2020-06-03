@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Customer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<th:block th:if="${message}">
+    <p style="color: red" th:text="${message}"></p>
+</th:block>
+<a>ADD NEW CUSTOMER</a>
+
+<div class="container-fluid col-md-8"></div>
+<form th:action="@{/admin/addNewCustomer}" method="post" th:object="${customerAdd}">
+
+    <div class="container">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="name" >NAME</label>
+                <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="name"/>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="birthday" >BIRTH</label>
+                <input type="date" class="form-control" id="birthday" th:field="*{birth}"/>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="IdPerson" >ID PERSON</label>
+                <input type="text" class="form-control" id="IdPerson" th:field="*{idPerson}" placeholder="personId"/>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="phoneNumber" >PHONE NUMBER</label>
+                <input type="tel" class="form-control" id="phoneNumber" th:field="*{phoneNumber}"/>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="email" >EMAIL</label>
+                <input type="text" class="form-control" id="email" th:field="*{email}" placeholder="email"/>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="address" >ADDRESS</label>
+                <input type="tel" class="form-control" id="address" th:field="*{address}" placeholder="address"/>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+
+</form>
+
+</body>
+</html>
