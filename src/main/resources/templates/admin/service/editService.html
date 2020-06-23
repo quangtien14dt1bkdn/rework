@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <title>Bootstrap Cool Sign Up Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="style1.css">
+</head>
+<body>
+<div class="signup-form">
+    <form th:action="@{/editService}" method="post" th:object="${service}">
+                <input type="hidden" th:field="*{id}">
+        <h2>Create Service</h2>
+        <p>It's free and only takes a minute.</p>
+        <hr>
+        <div class="form-group">
+            <label for="name">name</label>
+            <input id="name" type="text" class="form-control" th:field="*{name}">
+        </div>
+        <div>
+            <label for="area">area</label>
+            <input id="area" type="text" class="form-control" th:field="*{area}">
+        </div>
+        <div>
+            <label for="floor">floor</label>
+            <input id="floor" type="text" class="form-control" th:field="*{floors}">
+        </div>
+        <div>
+            <label for="people">number peoples</label>
+            <input id="people" type="text" class="form-control" th:field="*{numPeople}">
+        </div>
+        <div>
+            <label for="cost">cost</label>
+            <input id="cost" type="text" class="form-control" th:field="*{cost}">
+        </div>
+        <div>
+            <label for="status">status</label>
+            <input id="status" type="text" class="form-control" th:field="*{status}">
+        </div>
+<!--        <div>-->
+<!--            <label for="typeRent">type rent</label>-->
+<!--            <input id="typeRent" type="text" class="form-control" th:field="*{typeRent.name}">-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label for="typeService">status</label>-->
+<!--            <input id="typeService" type="text" class="form-control" th:field="*{typeService.name}">-->
+<!--        </div>-->
+        <div>
+            <label for="typeRent">typeRent:</label>
+            <select id="typeRent" th:field="*{typeRent}" >
+                <option th:each="each:${typeRent}" th:value="${each.id}" th:text="${each.name}"></option>
+            </select>
+        </div>
+        <div>
+            <label for="typeService">typeService:</label>
+            <select id="typeService" th:field="*{typeService}" >
+                <option th:each="each:${typeService}" th:value="${each.id}" th:text="${each.name}"></option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-primary btn-block btn-lg">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

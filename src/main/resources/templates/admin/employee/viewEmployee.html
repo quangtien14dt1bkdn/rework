@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Customer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+    <form th:action="@{/viewEmployee}" method="post" th:object="${employee}">
+        <input type="hidden" th:field="*{id}">
+        <table>
+            <tr>
+                <td><label for="name">NAME:</label> </td>
+                <td id="name" th:text="*{name}"></td>
+            </tr>
+            <tr>
+                <td><label for="birth">BIRTH:</label> </td>
+                <td id="birth" th:text="*{birth}"></td>
+            </tr>
+            <tr>
+                <td><label for="idPerson">ID_PERSON:</label> </td>
+                <td id="idPerson" th:text="*{idPerson}"></td>
+            </tr>
+            <tr>
+                <td><label for="salary">SALARY:</label> </td>
+                <td id="salary" th:text="*{salary}"></td>
+            </tr>
+            <tr>
+                <td><label for="phoneNumber">PHONE_NUMBER:</label> </td>
+                <td id="phoneNumber" th:text="*{phoneNumber}"></td>
+            </tr>
+            <tr>
+                <td><label for="email">EMAIL:</label> </td>
+                <td id="email" th:text="*{email}"></td>
+            </tr>
+            <tr>
+                <td><label for="part">PART:</label> </td>
+                <td id="part" th:text="*{part.partName}"></td>
+            </tr>
+            <tr>
+                <td><label for="position">POSITION:</label> </td>
+                <td id="position" th:text="*{position.positionName}"></td>
+            </tr>
+            <tr>
+                <td><label for="level">LEVEL:</label> </td>
+                <td id="level" th:text="*{level.levelName}"></td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" value="OK"></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+</body>
+</html>

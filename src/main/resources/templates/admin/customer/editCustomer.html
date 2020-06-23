@@ -1,11 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>edit customer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form action=""></form>
+<form th:action="@{/editCustomer}" method="post" th:object="${customer}">
+    <input type="hidden" name="id"  th:field="*{id}">
+    <table>
+        <tr>
+            <td><label for="name">name:</label></td>
+            <td><input id="name" type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td><label for="birth">birth:</label></td>
+            <td><input id="birth" type="date" th:field="*{birth}"></td>
+        </tr>
+        <tr>
+            <td><label for="idPerson">id person:</label></td>
+            <td><input id="idPerson" type="text" th:field="*{idPerson}"></td>
+        </tr>
+        <tr>
+            <td><label for="phoneNumber">phone number:</label></td>
+            <td><input id="phoneNumber" type="text" th:field="*{phoneNumber}"></td>
+        </tr>
+        <tr>
+            <td><label for="email">email:</label></td>
+            <td><input id="email" type="text" th:field="*{email}"></td>
+        </tr>
+        <tr>
+            <td><label for="address">address:</label></td>
+            <td><input id="address" type="text" th:field="*{address}"></td>
+        </tr>
+        <tr>
+            <td><label for="typeCustomer">typeCustomer:</label> </td>
+            <td>
+                <select id="typeCustomer" th:field="*{typeCustomer}" >
+                    <option th:each="each:${typeCustomer}" th:value="${each.id}" th:text="${each.nameTypeCustomer}"></option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" class="btn btn-primary"></td>
+        </tr>
+    </table>
+</form>
 <input type="hidden">
 </body>
 </html>

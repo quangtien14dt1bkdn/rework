@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Customer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<th:block th:if="${message}">
+    <p style="color: red" th:text="${message}"></p>
+</th:block>
+
+<center>
+    <table class="table">
+        <thead class="thread-dark">
+        <tr>
+            <th scope="col">ID LEVEL</th>
+            <th scope="col">NAME</th>
+            <th scope="col" colspan="2">ACTION</th>
+        </tr>
+        </thead>
+
+        <th:block th:each="each:${listPart}">
+            <tr>
+                <td th:text="${each.id}"></td>
+                <td th:text="${each.partName}"></td>
+                <td><a th:href="@{/editPart/__${each.id}__ }">EDIT</a></td>
+                <td><a th:href="@{/deletePart/__${each.id}__ }">DELETE</a></td>
+            </tr>
+        </th:block>
+    </table>
+</center>
+
+
+</body>
+</html>

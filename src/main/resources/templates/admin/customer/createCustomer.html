@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <title>Bootstrap Cool Sign Up Form</title>
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+<!--    <link rel="stylesheet" type="text/css" th:href="style1.css">-->
+<!--    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>-->
+    
+
+
+</head>
+<body>
+<th:block th:if="${message}">
+    <p style="color: red" th:text="${message}"></p>
+</th:block>
+<div class="signup-form">
+    <form th:action="@{/createCustomer}" method="post" th:object="${customer}">
+<!--        <input type="hidden" th:field="*{id}">-->
+        <h2>Create Customer</h2>
+        <hr>
+        <div class="form-group">
+            <div><d th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name error</d></div>
+            <div>
+                <label for="name">name</label>
+                <input id="name" type="text" class="form-control" th:field="*{name}">
+            </div>
+        </div>
+
+        <div>
+            <label for="birth">birth</label>
+            <input id="birth" type="date" class="form-control" th:field="*{birth}">
+        </div>
+
+        <div>
+            <label for="idPerson">id person</label></td>
+            <input id="idPerson" type="text" class="form-control" th:field="*{idPerson}"></td>
+            <span th:if="${#fields.hasErrors('idPerson')}" th:errors="*{idPerson}">idPerson error</span>
+        </div>
+
+        <div>
+            <label for="phoneNumber">phone number</label>
+            <input id="phoneNumber" type="text" class="form-control" th:field="*{phoneNumber}">
+            <span  th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">phone Error</span>
+        </div>
+
+        <div>
+            <label for="email">email</label>
+            <input id="email" type="text" class="form-control" th:field="*{email}">
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
+        </div>
+        <div>
+            <label for="address">address</label>
+            <input id="address" type="text" class="form-control" th:field="*{address}">
+        </div>
+        <div>
+            <label for="typeCustomer">typeCustomer:</label>
+            <select id="typeCustomer" th:field="*{typeCustomer}" >
+                <option th:each="each:${typeCustomer}" th:value="${each.id}" th:text="${each.nameTypeCustomer}"></option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-primary btn-block btn-lg">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

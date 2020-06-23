@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <title>Bootstrap Cool Sign Up Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--    <style type="text/css">-->
+<!--        body {-->
+<!--            color: #fff;-->
+<!--            background: #344a71;-->
+<!--            font-family: 'Roboto', sans-serif;-->
+<!--        }-->
+<!--        .form-control {-->
+<!--            min-height: 41px;-->
+<!--            box-shadow: none;-->
+<!--            border-color: #e1e4e5;-->
+<!--        }-->
+<!--        .form-control:focus {-->
+<!--            border-color: #49c1a2;-->
+<!--        }-->
+<!--        .form-control, .btn {-->
+<!--            border-radius: 3px;-->
+<!--        }-->
+<!--        .signup-form {-->
+<!--            width: 400px;-->
+<!--            margin: 0 auto;-->
+<!--            padding: 30px 0;-->
+<!--        }-->
+<!--        .signup-form form {-->
+<!--            color: #9ba5a8;-->
+<!--            border-radius: 3px;-->
+<!--            margin-bottom: 15px;-->
+<!--            background: #fff;-->
+<!--            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);-->
+<!--            padding: 30px;-->
+<!--        }-->
+<!--        .signup-form h2 {-->
+<!--            color: #333;-->
+<!--            font-weight: bold;-->
+<!--            margin-top: 0;-->
+<!--        }-->
+<!--        .signup-form hr {-->
+<!--            margin: 0 -30px 20px;-->
+<!--        }-->
+<!--        .signup-form .form-group {-->
+<!--            margin-bottom: 20px;-->
+<!--        }-->
+<!--        .signup-form label {-->
+<!--            font-weight: normal;-->
+<!--            font-size: 13px;-->
+<!--        }-->
+<!--        .signup-form .btn {-->
+<!--            font-size: 16px;-->
+<!--            font-weight: bold;-->
+<!--            background: #49c1a2;-->
+<!--            border: none;-->
+<!--            min-width: 140px;-->
+<!--        }-->
+<!--        .signup-form .btn:hover, .signup-form .btn:focus {-->
+<!--            background: #3cb094;-->
+<!--            outline: none !important;-->
+<!--        }-->
+<!--        .signup-form a {-->
+<!--            color: #fff;-->
+<!--            text-decoration: underline;-->
+<!--        }-->
+<!--        .signup-form a:hover {-->
+<!--            text-decoration: none;-->
+<!--        }-->
+<!--        .signup-form form a {-->
+<!--            color: #49c1a2;-->
+<!--            text-decoration: none;-->
+<!--        }-->
+<!--        .signup-form form a:hover {-->
+<!--            text-decoration: underline;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+<div class="signup-form">
+    <form th:action="@{/createAcc}" method="post" th:object="${acc}">
+        <!--        <input type="hidden" th:field="*{id}">-->
+        <h2>Create Service</h2>
+        <p>It's free and only takes a minute.</p>
+        <hr>
+        <div class="form-group">
+            <label for="name">name</label>
+            <input id="name" type="text" class="form-control" th:field="*{name}">
+        </div>
+        <div>
+            <label for="cost">area</label>
+            <input id="cost" type="text" class="form-control" th:field="*{cost}">
+        </div>
+        <div>
+            <label for="unit">unit</label>
+            <input id="unit" type="text" class="form-control" th:field="*{unit}">
+        </div>
+        <div>
+            <label for="status">status</label>
+            <input id="status" type="text" class="form-control" th:field="*{status}">
+        </div>
+<!--        <div>-->
+<!--            <label for="cost">cost</label>-->
+<!--            <input id="cost" type="text" class="form-control" th:field="*{cost}">-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label for="status">status</label>-->
+<!--            <input id="status" type="text" class="form-control" th:field="*{status}">-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label for="typeRent">typeRent:</label>-->
+<!--            <select id="typeRent" th:field="*{typeRent}" >-->
+<!--                <option th:each="each:${typeRent}" th:value="${each.id}" th:text="${each.name}"></option>-->
+<!--            </select>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label for="typeService">typeService:</label>-->
+<!--            <select id="typeService" th:field="*{typeService}" >-->
+<!--                <option th:each="each:${typeService}" th:value="${each.id}" th:text="${each.name}"></option>-->
+<!--            </select>-->
+<!--        </div>-->
+        <div>
+            <input type="submit" class="btn btn-primary btn-block btn-lg">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
