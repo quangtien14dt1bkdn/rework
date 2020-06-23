@@ -1,6 +1,8 @@
 package com.example.demo.models.customer;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.sql.Date;
@@ -17,7 +19,7 @@ public class Customer {
     @Size(min = 3,max = 50)
     private String name;
 
-//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date birth;
 
     @NotEmpty

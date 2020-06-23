@@ -11,7 +11,9 @@
 <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 <!--    <link rel="stylesheet" type="text/css" th:href="style1.css">-->
 <!--    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>-->
-    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css">
 
 
 </head>
@@ -25,7 +27,7 @@
         <h2>Create Customer</h2>
         <hr>
         <div class="form-group">
-            <div><d th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name error</d></div>
+            <div ><d th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name error</d></div>
             <div>
                 <label for="name">name</label>
                 <input id="name" type="text" class="form-control" th:field="*{name}">
@@ -35,6 +37,7 @@
         <div>
             <label for="birth">birth</label>
             <input id="birth" type="date" class="form-control" th:field="*{birth}">
+            <p th:if="${#fields.hasErrors('birth')}" th:errors="*{birth}" class="text-danger">birth error</p>
         </div>
 
         <div>
@@ -69,6 +72,14 @@
         </div>
     </form>
 </div>
+<script>
+    $('#birth').datepicker({
+        format:'dd/mm/yyyy',
+        uiLibrary:'bootstrap4',
+        autoclose: true,
+        todayHighlight: true
+    })
+</script>
 
 </body>
 </html>
